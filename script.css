@@ -142,6 +142,7 @@
 }
 
 @media screen and (max-width: 768px) {
+    
     /* 1. മെയിൻ ടൈറ്റിൽ (Services) ചെറുതാക്കാൻ */
     .section-title {
         font-size: 1.8rem !important;
@@ -172,5 +173,86 @@
         font-size: 1.1rem !important;
         display: inline-block;
         margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. മെയിൻ ടൈറ്റിൽ (Services) ചെറുതാക്കാൻ */
+    .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* 2. ബോക്സിനുള്ളിലെ ഗ്യാപ്പും അലൈൻമെന്റും */
+    .dashed-box {
+        padding: 20px 10px !important;
+        display: flex;
+        flex-direction: column; /* ഓരോ ഐറ്റവും താഴെ താഴെ വരാൻ */
+        align-items: center;
+        gap: 15px;
+        border-width: 1px; /* ബോർഡർ കനം കുറച്ചു */
+    }
+
+    /* 3. UI/UX, Packaging തുടങ്ങിയ ഫോണ്ടുകൾ ചെറുതാക്കാൻ */
+    .service-item {
+        font-size: 1.2rem !important; /* ഫോണ്ട് സൈസ് കുറച്ചു */
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    /* 4. 'Design' എന്ന് എഴുതിയ സ്ക്രിപ്റ്റ് ഫോണ്ട് ക്രമീകരിക്കാൻ */
+    .service-item .script {
+        font-size: 1.1rem !important;
+        display: inline-block;
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. പോപ്പ്അപ്പ് ബോക്സിന്റെ വീതി കുറയ്ക്കാൻ */
+    .modal-content {
+        width: 90% !important; /* ഫോൺ സ്ക്രീനിന്റെ 90% വിഡ്ത്ത് */
+        padding: 20px !important;
+        margin: 10% auto; /* മുകളിൽ നിന്ന് അല്പം താഴെയായി വരാൻ */
+        border-radius: 20px;
+    }
+
+    /* 2. ഹെഡിംഗും സബ് ടെക്സ്റ്റും ചെറുതാക്കാൻ */
+    .modal-header h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .modal-header p {
+        font-size: 0.9rem !important;
+    }
+
+    /* 3. ഇൻപുട്ട് ഫീൽഡുകൾ (Name, Email, Message) */
+    .input-group input, 
+    .input-group textarea {
+        padding: 12px !important;
+        font-size: 14px !important;
+        width: 100%; /* വശങ്ങളിലേക്ക് മുട്ടി നിൽക്കാതിരിക്കാൻ */
+        box-sizing: border-box;
+    }
+
+    /* 4. അയക്കാനുള്ള ബട്ടൺ ഫോണിന് അനുസരിച്ച് വലുതാക്കാൻ */
+    .send-btn {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 16px !important;
+    }
+
+    /* 5. ക്ലോസ് ബട്ടൺ (X) അമർത്താൻ എളുപ്പമാക്കാൻ */
+    .close-btn {
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+    }
+
+    /* 6. താങ്ക് യൂ മെസ്സേജ് വന്നാൽ അതും സെന്ററിൽ വരാൻ */
+    #thankYouMessage {
+        padding: 10px !important;
     }
 }
