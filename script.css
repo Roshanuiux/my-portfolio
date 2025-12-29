@@ -114,3 +114,63 @@
         margin-bottom: 10px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    /* 1. ഹെഡിംഗ് തള്ളി നിൽക്കുന്നത് ഒഴിവാക്കാൻ */
+    .skills-title {
+        font-size: 2rem !important; /* വലിപ്പം കുറച്ചു */
+        text-align: center;
+        word-wrap: break-word; /* വാക്കുകൾ മുറിഞ്ഞു പോകാതിരിക്കാൻ */
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    /* 2. സ്കിൽസ് ഗ്രിഡ് ഒതുക്കി വെക്കാൻ */
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    /* 3. കാർഡുകൾ സ്ക്രീനിന് പുറത്തേക്ക് പോകാതിരിക്കാൻ */
+    .skill-card {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. മെയിൻ ടൈറ്റിൽ (Services) ചെറുതാക്കാൻ */
+    .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* 2. ബോക്സിനുള്ളിലെ ഗ്യാപ്പും അലൈൻമെന്റും */
+    .dashed-box {
+        padding: 20px 10px !important;
+        display: flex;
+        flex-direction: column; /* ഓരോ ഐറ്റവും താഴെ താഴെ വരാൻ */
+        align-items: center;
+        gap: 15px;
+        border-width: 1px; /* ബോർഡർ കനം കുറച്ചു */
+    }
+
+    /* 3. UI/UX, Packaging തുടങ്ങിയ ഫോണ്ടുകൾ ചെറുതാക്കാൻ */
+    .service-item {
+        font-size: 1.2rem !important; /* ഫോണ്ട് സൈസ് കുറച്ചു */
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    /* 4. 'Design' എന്ന് എഴുതിയ സ്ക്രിപ്റ്റ് ഫോണ്ട് ക്രമീകരിക്കാൻ */
+    .service-item .script {
+        font-size: 1.1rem !important;
+        display: inline-block;
+        margin-left: 5px;
+    }
+}
