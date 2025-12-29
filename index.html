@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX/UI Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const innerCursor = document.querySelector('.cursor-inner');
+        const outerCursor = document.querySelector('.cursor-outer');
+
+
+        if (innerCursor && outerCursor) {
+
+            document.addEventListener('mousemove', (e) => {
+
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+
+                innerCursor.style.transform = `translate(${posX}px, ${posY}px)`;
+
+
+                outerCursor.animate({
+                    transform: `translate(${posX}px, ${posY}px)`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+
+            const hoverTargets = document.querySelectorAll('a, button, .card');
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => {
+                    outerCursor.classList.add('cursor-hover');
+                });
+                target.addEventListener('mouseleave', () => {
+                    outerCursor.classList.remove('cursor-hover');
+                });
+            });
+        } else {
+            console.error("Cursor elements not found!");
+        }
+    });
+</script>
+<script>
+    document.addEventListener('mousemove', (e) => {
+        const topText = document.querySelector('.top-text');
+        const bottomText = document.querySelector('.bottom-text');
+
+        if (topText && bottomText) {
+
+            const moveX = (window.innerWidth / 2 - e.clientX) / 40;
+            const moveY = (window.innerHeight / 2 - e.clientY) / 40;
+
+            topText.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            bottomText.style.transform = `translate(${-moveX}px, ${-moveY}px)`;
+        }
+    });
+</script>
+<script>
+    document.addEventListener('mousemove', (e) => {
+        const footerText = document.querySelector('.footer-text');
+        if (footerText) {
+            const moveX = (window.innerWidth / 2 - e.clientX) / 25;
+            const moveY = (window.innerHeight / 2 - e.clientY) / 25;
+
+
+            footerText.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
+    });
+</script>
+<script>
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function () {
+            const originalText = this.innerHTML;
+
+
+            this.innerHTML = "Downloading... ⏳";
+            this.style.borderColor = "var(--orange)";
+
+
+            setTimeout(() => {
+                this.innerHTML = "Downloaded! ✅";
+
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.borderColor = "#ccc";
+                }, 2000);
+            }, 1500);
+        });
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const modal = document.getElementById("contactModal");
+        const btn = document.querySelector(".talk-btn"); // ഇവിടെ നിങ്ങളുടെ ബട്ടൺ ക്ലാസ് നൽകുക
+        const closeBtn = document.querySelector(".close-btn");
+
+        if (btn && modal) {
+            btn.onclick = function (e) {
+                e.preventDefault(); // ബട്ടൺ റീലോഡ് ആകുന്നത് തടയാൻ
+                modal.style.display = "block";
+                // ആനിമേഷന് വേണ്ടി 10ms കഴിഞ്ഞ് 'show' ക്ലാസ് നൽകുന്നു
+                setTimeout(() => {
+                    modal.classList.add("show");
+                }, 10);
+            }
+        }
+
+        if (closeBtn) {
+            closeBtn.onclick = function () {
+                modal.classList.remove("show");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+            }
+        }
+
+        // മോഡലിന് പുറത്ത് ക്ലിക്ക് ചെയ്താൽ ക്ലോസ് ആകാൻ
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.classList.remove("show");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+            }
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("PjS6hsR1kBMes7L5f"); // Replace with your actual Public Key
+    })();
+</script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('contactModal');
+    const contactForm = document.getElementById('contactForm');
+    const closeBtn = document.querySelector('.close-btn');
+    const talkBtns = document.querySelectorAll('.talk-btn, .engage-btn');
+    const thankYou = document.getElementById('thankYouMessage');
+    const modalHeader = document.querySelector('.modal-header');
+
+    // 1. ക്ലോസ് ചെയ്യാനുള്ള ഫംഗ്ഷൻ (ഇത് ഒരിടത്ത് മാത്രം മതി)
+    const closeModal = () => {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+            // ഫോം റീസെറ്റ് ചെയ്യുന്നു
+            contactForm.style.display = 'block';
+            modalHeader.style.display = 'block';
+            if (thankYou) thankYou.style.display = 'none';
+        }, 300);
+    };
+
+    // ക്ലോസ് ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ
+    if (closeBtn) closeBtn.onclick = closeModal;
+
+    // പുറത്ത് ക്ലിക്ക് ചെയ്താലും ക്ലോസ് ആകാൻ
+    window.onclick = (event) => {
+        if (event.target == modal) closeModal();
+    };
+
+    // ബട്ടൺ വഴി ഓപ്പൺ ചെയ്യാൻ
+    talkBtns.forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            setTimeout(() => modal.classList.add('show'), 10);
+        };
+    });
+
+    // 2. ഇമെയിൽ അയക്കാനുള്ള സെക്ഷൻ
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const btn = document.querySelector('.submit-project-btn');
+            
+            if (btn) {
+                btn.innerHTML = "Sending...";
+                btn.disabled = true;
+            }
+
+            emailjs.sendForm('service_1c0pz9j', 'template_oqedq48', this)
+                .then(function () {
+                    // ഫോമും ഹെഡറും ഒളിപ്പിക്കുന്നു
+                    contactForm.style.display = 'none';
+                    modalHeader.style.display = 'none';
+
+                    // ഗ്രീറ്റിംഗ് കാണിക്കുന്നു
+                    if (thankYou) thankYou.style.display = 'block';
+
+                    // ബട്ടൺ പഴയപടിയാക്കുന്നു
+                    if (btn) {
+                        btn.innerHTML = "SEND MESSAGE";
+                        btn.disabled = false;
+                    }
+                    contactForm.reset();
+                }, function (error) {
+                    alert('Failed: ' + JSON.stringify(error));
+                    if (btn) {
+                        btn.innerHTML = "SEND MESSAGE";
+                        btn.disabled = false;
+                    }
+                });
+        });
+    }
+
+    // ഗ്രീറ്റിംഗിനുള്ളിലെ Close ബട്ടൺ വർക്ക് ചെയ്യാൻ
+    window.closeModalNow = closeModal; 
+});
+   
+</script>
+<body>
+    <div class="background-texture"></div>
+
+    <div class="cursor-inner"></div>
+    <div class="cursor-outer"></div>
+
+    <header>
+        <div class="logo">PORTFOLIO.</div>
+        <nav>
+            <div class="nav-container">
+                <a href="#about-me">About</a>
+                <a href="#skill-me">Skills</a>
+                <a href="#">Work</a>
+                <a href="#">Contact</a>
+                <button class="talk-btn">Let’s Talk</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="text-wrapper">
+            <div class="text-wrapper mouse-parallax">
+                <h1 class="top-text">UXUI</h1>
+                <h1 class="bottom-text">DESIGNER</h1>
+            </div>
+            <div class="badge">Finally, We Meet!</div>
+
+            <div class="icon figma"></div>
+            <div class="icon ps"></div>
+            <div class="icon ai"></div>
+        </div>
+    </main>
+    <section id="about-me" class="about-section">
+        <div class="content-col">
+            <div class="headline">
+                <h1 class="light">HELLO!</h1>
+                <h1 class="bold">I’am Roshan</h1>
+            </div>
+
+            <p class="description">
+                I am a UI/UX designer who thrives on untangling complex problems. I’ve helped startups and established
+                companies create digital products that users love. My approach combines user research, data analysis,
+                and creative problem-solving.
+            </p>
+
+            <div class="cta-group">
+                <button class="btn-black">View My Work &rarr;</button>
+                <a href="pdf/Anees P Resume .pdf.pdf" download="Roshan_Resume" style="text-decoration: none;">
+                    <button class="btn-outline" id="downloadBtn">Download Resume</button>
+                </a>
+            </div>
+
+            <div class="social-icons">
+                <div class="icon-circle"><span><img src="image/streamline-color_whatsapp.svg" alt=""></span></div>
+                <div class="icon-circle"><span><img src="image/streamline-color_linkedin.svg" alt=""></span></div>
+                <div class="icon-circle"><span><img src="image/streamline-color_instagram.svg" alt=""></span></div>
+                <div class="icon-circle"><span><img src="image/streamline-color_facebook-1.svg" alt=""></span></div>
+                <div class="icon-circle"><span><img src="image/streamline-logos_behance-logo-block.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-col">
+            <div class="curved-bg"></div>
+
+            <img src="image/6AE6FA0F-41E0-4889-8B1A-FB8898741259 1.png" alt="Roshan" class="profile-img">
+        </div>
+    </section>
+
+
+    <section class="services-section">
+        <div class="background-overlay"></div>
+        <div class="services-container">
+            <h2 class="section-title">Services</h2>
+            <div class="dashed-box">
+                <div class="service-item">UI/UX <span class="script">Design</span></div>
+                <div class="service-item">Packaging <span class="script">Design</span></div>
+                <div class="service-item">Poster <span class="script">Design</span></div>
+            </div>
+        </div>
+
+        <div class="work-container">
+
+
+
+            <div class="portfolio-grid-section">
+                <div class="grid-container">
+
+                    <div class="scroll-column up">
+                        <div class="scroll-content">
+                            <div class="card"><img src="image/Rectangle 25.png"></div>
+                            <div class="card"><img src="image/Rectangle 26.png"></div>
+                            <div class="card"><img src="image/Rectangle 25.png"></div>
+                            <div class="card"><img src="image/Rectangle 26.png"></div>
+                        </div>
+                    </div>
+
+                    <div class="scroll-column down">
+                        <div class="scroll-content">
+                            <div class="card"><img src="image/Rectangle 27.png"></div>
+                            <div class="card"><img src="image/Rectangle 31.png"></div>
+                            <div class="card"><img src="image/Rectangle 27.png"></div>
+                            <div class="card"><img src="image/Rectangle 31.png"></div>
+                        </div>
+                    </div>
+
+                    <div class="scroll-column up">
+                        <div class="scroll-content">
+                            <div class="card"><img src="image/Rectangle 26.png"></div>
+                            <div class="card"><img src="image/Rectangle 27.png"></div>
+                            <div class="card"><img src="image/Rectangle 26.png"></div>
+                            <div class="card"><img src="image/Rectangle 27.png"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="scroller-container">
+            <div class="scroll-wrapper" data-direction="left">
+                <ul class="tag-list">
+                    <li>Instagram</li>
+                    <li>Whatsapp</li>
+                    <li>Dribbble</li>
+                    <li>Behance</li>
+                    <li>Linkedin</li>
+                    <li>Story</li>
+                    <li>Button</li>
+                    <li>Action</li>
+                    <li>Model</li>
+                    <li>Frame</li>
+                    <li>Instagram</li>
+                    <li>Whatsapp</li>
+                    <li>Dribbble</li>
+                    <li>Behance</li>
+                    <li>Linkedin</li>
+                    <li>Story</li>
+                    <li>Button</li>
+                    <li>Action</li>
+                    <li>Model</li>
+                    <li>Frame</li>
+                </ul>
+            </div>
+
+            <div class="scroll-wrapper" data-direction="right">
+                <ul class="tag-list">
+                    <li>Linkedin</li>
+                    <li>Behance</li>
+                    <li>Frame</li>
+                    <li>App</li>
+                    <li>Whatsapp</li>
+                    <li>Model</li>
+                    <li>Story</li>
+                    <li>Instagram</li>
+                    <li>Button</li>
+                    <li>Action</li>
+                    <li>Linkedin</li>
+                    <li>Behance</li>
+                    <li>Frame</li>
+                    <li>App</li>
+                    <li>Whatsapp</li>
+                    <li>Model</li>
+                    <li>Story</li>
+                    <li>Instagram</li>
+                    <li>Button</li>
+                    <li>Action</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </section>
+    <section id="skill-me" class="skills-section">
+        <div class="skills-bg-overlay"></div>
+        <div class="skills-content">
+            <h2 class="skills-title">SKILLS & TECHNOLOGIES</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="card-header header-light-orange">Designing Tools</div>
+                    <ul class="skill-list">
+                        <li> Figma</li>
+                        <li>Photoshop</li>
+                        <li>Adobe Illustrator</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-header header-light-orange">UX Research</div>
+                    <ul class="skill-list">
+                        <li>User Interviews</li>
+                        <li>Usability Testing</li>
+                        <li>Personas</li>
+                        <li>Journey Maps</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-header header-light-orange">Design system</div>
+                    <ul class="skill-list">
+                        <li>Wireframing</li>
+                        <li>Responsive Design</li>
+                        <li>Accessibility</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="engage-container">
+                <p>Click On</p>
+                <button class="engage-btn">ENGAGE ME</button>
+            </div>
+
+            <div class="uiux-footer">
+                <h1 class="footer-text parallax-text">
+                    UI UX <span class="script">Design</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-design-section">
+        <div class="app-info">
+            <h1 class="main-title">APP <span class="orange-text">Design</span></h1>
+            <div class="project-details">
+                <h2 class="project-name">PODCASTY</h2>
+                <p class="project-desc">Podcast & Streaming</p>
+            </div>
+            <a href="#" class="view-case-study">View Case Study <span class="dot-icon">...</span></a>
+        </div>
+
+        <div class="app-visuals">
+            <div class="phone-mockup phone-1">
+                <img src="image/IMG_9729 1.svg" alt="App Screen 1">
+            </div>
+
+        </div>
+    </section>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div id="thankYouMessage" style="display: none; text-align: center; padding: 20px;">
+                <div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                <h2 style="color: #ff7e1a; margin-top: 20px;">Thank You!</h2>
+                <p>Your message has been sent successfully. I'll get back to you soon!</p>
+                <button onclick="closeModalNow()" class="send-btn">Close</button>
+            </div>
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2>Let's <span style="color: #ff7e1a;">Talk!</span></h2>
+                <p>Tell me about your project...</p>
+            </div>
+            <form id="contactForm">
+                <div class="input-group">
+                    <input type="text" name="name" id="name" required placeholder="Name">
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" id="id_email" required placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <textarea name="message" id="message" rows="4" required
+                        placeholder="How can I help you?"></textarea>
+                </div>
+                <button type="submit" class="send-btn submit-project-btn">SEND MESSAGE</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
