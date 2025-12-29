@@ -14,6 +14,44 @@ body {
     height: auto;
      cursor: none;
 }
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+/* മൊബൈൽ ഫോണുകൾക്കായി (768px-ൽ താഴെ) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* വശങ്ങളിൽ അല്പം സ്ഥലം വിടാൻ */
+        margin: 0 auto;
+    }
+
+    /* ഹെഡറിലെ ലിങ്കുകൾ ഫോണിൽ വരുമ്പോൾ താഴെ താഴെ വരാൻ */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* സെക്ഷനുകൾ ഒന്നിന് താഴെ ഒന്നായി വരാൻ (Flex/Grid മാറ്റം) */
+    .hero-section, .about-section, .contact-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* ഫോട്ടോകൾ ഫോൺ സ്‌ക്രീനിന് അനുസരിച്ച് മാറാൻ */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* ബട്ടണുകൾ വിരൽ കൊണ്ട് അമർത്താൻ പാകത്തിന് അല്പം വലുതാക്കാൻ */
+    .send-btn, .engage-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
 .top-text, .bottom-text {
      /* ഇതില്ലെങ്കിൽ transform വർക്ക് ആകില്ല */
     transition: transform 0.1s ease-out; 
