@@ -1,0 +1,116 @@
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav .nav-container {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .talk-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-text, .bottom-text {
+        font-size: 4rem; /* വലിപ്പം കുറച്ചു */
+        line-height: 1;
+    }
+    
+    .badge {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column-reverse; /* ആദ്യം ടെക്സ്റ്റും താഴെ ഫോട്ടോയും വരാൻ */
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .content-col {
+        width: 100%;
+    }
+
+    .cta-group {
+        flex-direction: column; /* ബട്ടണുകൾ താഴെ താഴെ വരാൻ */
+        gap: 10px;
+    }
+
+    .image-col {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .profile-img {
+        width: 250px; /* ഫോട്ടോയുടെ വലിപ്പം കുറച്ചു */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* ഒരു കോളം മാത്രം */
+        gap: 15px;
+    }
+    
+    .scroll-column:nth-child(2) {
+        display: none; /* ഫോണിൽ തിരക്ക് ഒഴിവാക്കാൻ ഒരു കോളം ഹൈഡ് ചെയ്യാം */
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cursor-inner, .cursor-outer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ഹെഡർ മൊത്തമായി ഒഴിവാക്കാൻ */
+    header {
+        display: none !important;
+    }
+
+    /* ഹീറോ സെക്ഷൻ മുകളിലേക്ക് കയറ്റി വെക്കാൻ (Header പോയതുകൊണ്ട്) */
+    .hero {
+        padding-top: 50px;
+        min-height: auto;
+    }
+
+    /* വലിയ ടെക്സ്റ്റ് ഫോണിന് അനുസരിച്ച് മാറ്റാൻ */
+    .top-text, .bottom-text {
+        font-size: 3rem !important;
+        text-align: center;
+    }
+
+    /* സെക്ഷനുകൾക്കിടയിലുള്ള ഗ്യാപ്പ് കുറയ്ക്കാൻ */
+    section {
+        padding: 40px 20px !important;
+    }
+
+    /* About സെക്ഷൻ നിരയായി വരാൻ */
+    .about-section {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    /* ബട്ടണുകൾ മൊബൈലിൽ ഫുൾ വിഡ്ത്ത് വരാൻ */
+    .btn-black, .btn-outline {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
