@@ -288,3 +288,10 @@
         width: calc(100% - 30px);
     }
 }
+
+
+@media screen and (max-width: 768px)
+{
+    .profile-img{ display: none;}
+    
+}
