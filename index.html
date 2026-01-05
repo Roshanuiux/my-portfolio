@@ -103,14 +103,14 @@
     document.addEventListener("DOMContentLoaded", function () {
 
         const modal = document.getElementById("contactModal");
-        const btn = document.querySelector(".talk-btn"); // ഇവിടെ നിങ്ങളുടെ ബട്ടൺ ക്ലാസ് നൽകുക
+        const btn = document.querySelector(".talk-btn"); 
         const closeBtn = document.querySelector(".close-btn");
 
         if (btn && modal) {
             btn.onclick = function (e) {
-                e.preventDefault(); // ബട്ടൺ റീലോഡ് ആകുന്നത് തടയാൻ
+                e.preventDefault(); 
                 modal.style.display = "block";
-                // ആനിമേഷന് വേണ്ടി 10ms കഴിഞ്ഞ് 'show' ക്ലാസ് നൽകുന്നു
+               
                 setTimeout(() => {
                     modal.classList.add("show");
                 }, 10);
@@ -126,7 +126,7 @@
             }
         }
 
-        // മോഡലിന് പുറത്ത് ക്ലിക്ക് ചെയ്താൽ ക്ലോസ് ആകാൻ
+        
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.classList.remove("show");
@@ -154,27 +154,27 @@
     const thankYou = document.getElementById('thankYouMessage');
     const modalHeader = document.querySelector('.modal-header');
 
-    // 1. ക്ലോസ് ചെയ്യാനുള്ള ഫംഗ്ഷൻ (ഇത് ഒരിടത്ത് മാത്രം മതി)
+    
     const closeModal = () => {
         modal.classList.remove('show');
         setTimeout(() => {
             modal.style.display = 'none';
-            // ഫോം റീസെറ്റ് ചെയ്യുന്നു
+            
             contactForm.style.display = 'block';
             modalHeader.style.display = 'block';
             if (thankYou) thankYou.style.display = 'none';
         }, 300);
     };
 
-    // ക്ലോസ് ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ
+   
     if (closeBtn) closeBtn.onclick = closeModal;
 
-    // പുറത്ത് ക്ലിക്ക് ചെയ്താലും ക്ലോസ് ആകാൻ
+   
     window.onclick = (event) => {
         if (event.target == modal) closeModal();
     };
 
-    // ബട്ടൺ വഴി ഓപ്പൺ ചെയ്യാൻ
+   
     talkBtns.forEach(btn => {
         btn.onclick = (e) => {
             e.preventDefault();
@@ -183,7 +183,7 @@
         };
     });
 
-    // 2. ഇമെയിൽ അയക്കാനുള്ള സെക്ഷൻ
+   
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
             event.preventDefault();
@@ -196,14 +196,14 @@
 
             emailjs.sendForm('service_1c0pz9j', 'template_oqedq48', this)
                 .then(function () {
-                    // ഫോമും ഹെഡറും ഒളിപ്പിക്കുന്നു
+                    
                     contactForm.style.display = 'none';
                     modalHeader.style.display = 'none';
 
-                    // ഗ്രീറ്റിംഗ് കാണിക്കുന്നു
+                    
                     if (thankYou) thankYou.style.display = 'block';
 
-                    // ബട്ടൺ പഴയപടിയാക്കുന്നു
+                    
                     if (btn) {
                         btn.innerHTML = "SEND MESSAGE";
                         btn.disabled = false;
@@ -224,6 +224,25 @@
 });
    
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const footerLine = document.querySelector('.footer-line');
+
+      
+        if (footerLine) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        footerLine.classList.add('active'); 
+                    }
+                });
+            }, { threshold: 0.2 }); 
+
+            observer.observe(footerLine);
+        }
+    });
+</script>
+
 <body>
     <div class="background-texture"></div>
 
@@ -240,9 +259,10 @@
                 <a href="#">Contact</a>
                 <button class="talk-btn">Let’s Talk</button>
             </div>
+             
         </nav>
     </header>
-
+   
     <main class="hero">
         <div class="text-wrapper">
             <div class="text-wrapper mouse-parallax">
@@ -271,7 +291,7 @@
 
             <div class="cta-group">
                 <button class="btn-black">View My Work &rarr;</button>
-                <a href="pdf/Anees P Resume .pdf.pdf" download="Roshan_Resume" style="text-decoration: none;">
+                <a href="pdf/Mohamed Roshan .pdf" download="Roshan_Resume" style="text-decoration: none;">
                     <button class="btn-outline" id="downloadBtn">Download Resume</button>
                 </a>
             </div>
@@ -497,6 +517,37 @@
             </form>
         </div>
     </div>
+
+    <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-info">
+                <p>Email :</p>
+                <a href="mailto:roshanuiux6924@gmail.com" class="footer-link">roshanuiux6924@gmail.com</a>
+            </div>
+
+            <div class="footer-info">
+                <p>Call Today :</p>
+                <a href="tel:+917902517066" class="footer-link">+91 7902517066</a>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://wa.me/917902517066" target="_blank" class="social-icon"><img src="image/streamline-color_whatsapp.svg" alt="Whatsapp"></a>
+                <a href="#" target="_blank" class="social-icon"><img src="image/streamline-color_linkedin.svg" alt="Linkedin"></a>
+                <a href="#" target="_blank" class="social-icon"><img src="image/streamline-color_instagram.svg" alt="Instagram"></a>
+                <a href="#" target="_blank" class="social-icon"><img src="image/streamline-color_facebook-1.svg" alt="Facebook"></a>
+                <a href="#" target="_blank" class="social-icon"><img src="image/streamline-logos_behance-logo-block.svg" alt="Behance"></a>
+            </div>
+        </div>
+
+        <hr class="footer-line">
+
+        <div class="footer-bottom">
+            <p>&copy; Copyright 2026. All Rights Reserved by <span class="bold">Roshan</span></p>
+            <p>Designed & Developed by <span class="bold">Roshan</span></p>
+        </div>
+    </div>
+</footer>
 
 
 
