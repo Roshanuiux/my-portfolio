@@ -19,7 +19,7 @@
 
 @media (max-width: 768px) {
     .top-text, .bottom-text {
-        font-size: 4rem; /* വലിപ്പം കുറച്ചു */
+        font-size: 4rem; 
         line-height: 1;
     }
     
@@ -31,7 +31,7 @@
 
 @media (max-width: 768px) {
     .about-section {
-        flex-direction: column-reverse; /* ആദ്യം ടെക്സ്റ്റും താഴെ ഫോട്ടോയും വരാൻ */
+        flex-direction: column-reverse;
         text-align: center;
         padding: 40px 20px;
     }
@@ -41,7 +41,7 @@
     }
 
     .cta-group {
-        flex-direction: column; /* ബട്ടണുകൾ താഴെ താഴെ വരാൻ */
+        flex-direction: column; 
         gap: 10px;
     }
 
@@ -51,18 +51,18 @@
     }
 
     .profile-img {
-        width: 250px; /* ഫോട്ടോയുടെ വലിപ്പം കുറച്ചു */
+        width: 250px; 
     }
 }
 
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(1, 1fr); /* ഒരു കോളം മാത്രം */
+        grid-template-columns: repeat(1, 1fr); 
         gap: 15px;
     }
     
     .scroll-column:nth-child(2) {
-        display: none; /* ഫോണിൽ തിരക്ക് ഒഴിവാക്കാൻ ഒരു കോളം ഹൈഡ് ചെയ്യാം */
+        display: none;
     }
 }
 
@@ -80,35 +80,34 @@
 }
 
 @media screen and (max-width: 768px) {
-    /* ഹെഡർ മൊത്തമായി ഒഴിവാക്കാൻ */
+    
     header {
         display: none !important;
     }
 
-    /* ഹീറോ സെക്ഷൻ മുകളിലേക്ക് കയറ്റി വെക്കാൻ (Header പോയതുകൊണ്ട്) */
+   
     .hero {
         padding-top: 50px;
         min-height: auto;
     }
 
-    /* വലിയ ടെക്സ്റ്റ് ഫോണിന് അനുസരിച്ച് മാറ്റാൻ */
+   
     .top-text, .bottom-text {
         font-size: 3rem !important;
         text-align: center;
     }
 
-    /* സെക്ഷനുകൾക്കിടയിലുള്ള ഗ്യാപ്പ് കുറയ്ക്കാൻ */
     section {
         padding: 40px 20px !important;
     }
 
-    /* About സെക്ഷൻ നിരയായി വരാൻ */
+   
     .about-section {
         flex-direction: column-reverse;
         gap: 20px;
     }
 
-    /* ബട്ടണുകൾ മൊബൈലിൽ ഫുൾ വിഡ്ത്ത് വരാൻ */
+   
     .btn-black, .btn-outline {
         width: 100%;
         margin-bottom: 10px;
@@ -116,17 +115,17 @@
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. ഹെഡിംഗ് തള്ളി നിൽക്കുന്നത് ഒഴിവാക്കാൻ */
+    
     .skills-title {
-        font-size: 2rem !important; /* വലിപ്പം കുറച്ചു */
+        font-size: 2rem !important; 
         text-align: center;
-        word-wrap: break-word; /* വാക്കുകൾ മുറിഞ്ഞു പോകാതിരിക്കാൻ */
+        word-wrap: break-word;
         width: 100%;
         padding: 0 10px;
         box-sizing: border-box;
     }
 
-    /* 2. സ്കിൽസ് ഗ്രിഡ് ഒതുക്കി വെക്കാൻ */
+    
     .skills-grid {
         display: flex;
         flex-direction: column;
@@ -134,7 +133,7 @@
         padding: 0 20px;
     }
 
-    /* 3. കാർഡുകൾ സ്ക്രീനിന് പുറത്തേക്ക് പോകാതിരിക്കാൻ */
+   
     .skill-card {
         width: 100% !important;
         margin: 0 auto;
@@ -143,32 +142,32 @@
 
 @media screen and (max-width: 768px) {
     
-    /* 1. മെയിൻ ടൈറ്റിൽ (Services) ചെറുതാക്കാൻ */
+    
     .section-title {
         font-size: 1.8rem !important;
         margin-bottom: 20px;
         text-align: center;
     }
 
-    /* 2. ബോക്സിനുള്ളിലെ ഗ്യാപ്പും അലൈൻമെന്റും */
+    
     .dashed-box {
         padding: 20px 10px !important;
         display: flex;
-        flex-direction: column; /* ഓരോ ഐറ്റവും താഴെ താഴെ വരാൻ */
+        flex-direction: column; 
         align-items: center;
         gap: 15px;
-        border-width: 1px; /* ബോർഡർ കനം കുറച്ചു */
+        border-width: 1px; 
     }
 
-    /* 3. UI/UX, Packaging തുടങ്ങിയ ഫോണ്ടുകൾ ചെറുതാക്കാൻ */
+  
     .service-item {
-        font-size: 1.2rem !important; /* ഫോണ്ട് സൈസ് കുറച്ചു */
+        font-size: 1.2rem !important; 
         text-align: center;
         width: 100%;
         display: block;
     }
 
-    /* 4. 'Design' എന്ന് എഴുതിയ സ്ക്രിപ്റ്റ് ഫോണ്ട് ക്രമീകരിക്കാൻ */
+    
     .service-item .script {
         font-size: 1.1rem !important;
         display: inline-block;
@@ -177,32 +176,32 @@
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. മെയിൻ ടൈറ്റിൽ (Services) ചെറുതാക്കാൻ */
+   
     .section-title {
         font-size: 1.8rem !important;
         margin-bottom: 20px;
         text-align: center;
     }
 
-    /* 2. ബോക്സിനുള്ളിലെ ഗ്യാപ്പും അലൈൻമെന്റും */
+    
     .dashed-box {
         padding: 20px 10px !important;
         display: flex;
-        flex-direction: column; /* ഓരോ ഐറ്റവും താഴെ താഴെ വരാൻ */
+        flex-direction: column; 
         align-items: center;
         gap: 15px;
-        border-width: 1px; /* ബോർഡർ കനം കുറച്ചു */
+        border-width: 1px; 
     }
 
-    /* 3. UI/UX, Packaging തുടങ്ങിയ ഫോണ്ടുകൾ ചെറുതാക്കാൻ */
+    
     .service-item {
-        font-size: 1.2rem !important; /* ഫോണ്ട് സൈസ് കുറച്ചു */
+        font-size: 1.2rem !important; 
         text-align: center;
         width: 100%;
         display: block;
     }
 
-    /* 4. 'Design' എന്ന് എഴുതിയ സ്ക്രിപ്റ്റ് ഫോണ്ട് ക്രമീകരിക്കാൻ */
+    
     .service-item .script {
         font-size: 1.1rem !important;
         display: inline-block;
@@ -211,15 +210,15 @@
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. പോപ്പ്അപ്പ് ബോക്സിന്റെ വീതി കുറയ്ക്കാൻ */
+    
     .modal-content {
-        width: 90% !important; /* ഫോൺ സ്ക്രീനിന്റെ 90% വിഡ്ത്ത് */
+        width: 90% !important; 
         padding: 20px !important;
-        margin: 10% auto; /* മുകളിൽ നിന്ന് അല്പം താഴെയായി വരാൻ */
+        margin: 10% auto; 
         border-radius: 20px;
     }
 
-    /* 2. ഹെഡിംഗും സബ് ടെക്സ്റ്റും ചെറുതാക്കാൻ */
+    
     .modal-header h2 {
         font-size: 1.5rem !important;
     }
